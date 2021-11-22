@@ -18,7 +18,7 @@ namespace hackme
         public Form1()
         {
             InitializeComponent();
-        }
+        }//jdsfn jf
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -60,24 +60,29 @@ namespace hackme
             guesspass = "";
             int i = 0;
             int count = 0;
-            foreach (char letter in alph)
+            bool doingstuff = true;
+            while (doingstuff)
             {
-                if (i != alph.Length)
+                foreach (char letter in alph)
                 {
-                    guesspass = letter.ToString();
-                    //int index = guesspass.LastIndexOf(letter);
-                    textBox1.Text = guesspass;
-                    guesspass.Substring(0, count);
-                    if (guesspass == password)
+                    if (i != alph.Length)
                     {
-                        break;
+                        guesspass = letter.ToString();
+                        //int index = guesspass.LastIndexOf(letter);
+                        textBox1.Text = guesspass;
+                        guesspass.Substring(0, count);
+                        if (guesspass == password)
+                        {
+                            doingstuff = false;
+                            break;
+                        }
+                        i++;
                     }
-                    i++;
-                }
-                else
-                {
-                    i = 0;
-                    count++;
+                    else
+                    {
+                        i = 0;
+                        count++;
+                    }
                 }
             }
         }
